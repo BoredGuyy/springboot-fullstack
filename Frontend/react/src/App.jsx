@@ -1,7 +1,8 @@
-import { Button, ButtonGroup, Spinner } from '@chakra-ui/react';
-import SidebarWithHeader from './shared/SideBar.jsx';
+import { Button, ButtonGroup, Spinner, Wrap, WrapItem } from '@chakra-ui/react';
+import SidebarWithHeader from './components/shared/SideBar.jsx';
 import {useEffect, useState} from 'react'
 import { getCustomers } from './services/clients.js'
+import CardWithImage from './components/card.jsx'
 
 const App = () => {
 
@@ -43,9 +44,13 @@ const App = () => {
 
     return (
         <SidebarWithHeader>
-            {cusotmers.map((customer, index) => (
-                <p key={index}>{customer.name}</p>
-            ))}
+            <Wrap justify={"center"} spacing={"30px"}>
+                {cusotmers.map((customer, index) => (
+                    <WrapItem key={index}>
+                        <CardWithImage {...customer}/>
+                    </WrapItem>
+                ))}
+            </Wrap>
         </SidebarWithHeader>
     )
 }
