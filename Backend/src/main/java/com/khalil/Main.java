@@ -18,6 +18,7 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
+
     @Bean
     CommandLineRunner runner(CustomerRepository customerRepository){
         return args -> {
@@ -30,7 +31,7 @@ public class Main {
                     firstname.toLowerCase() + "." + lastName.toLowerCase() + "@gmail.com",
                     random.nextInt(18, 80));
 
-//            customerRepository.save(customer);
+            customerRepository.save(customer);
         };
     }
 }
